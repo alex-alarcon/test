@@ -10,7 +10,7 @@ function Form () {
 
   const handleSubmit = useCallback(
     values => {
-      const body = encode({ "form-name": "contact", ...values });
+      const body = encode({ "form-name": "form 1", ...values });
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -32,7 +32,8 @@ function Form () {
       inputState: '',
       inputZip: '',
       gridCheck: '',
-      'form-name': ''
+      'form-name': '',
+      'bot-field': ''
     },
     onSubmit: values => {
       handleSubmit(values)
@@ -40,8 +41,18 @@ function Form () {
   });  
 
   return (
-    <form onSubmit={formik.handleSubmit} data-netlify="true">
+    <form 
+      onSubmit={formik.handleSubmit}
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      data-netlify-recaptcha="true"
+    >
       <input type="hidden" name="form-name" value="test" />
+      <input 
+        name="bot-field"
+        onChange={formik.handleChange}
+        value={formik.values['bot-field']}
+      />
       <div className="form-row">
         <div className="form-group col-md-6">
           <label htmlFor="inputEmail4">Email</label>
@@ -142,6 +153,7 @@ function Form () {
           </label>
         </div>
       </div>
+      <div data-netlify-recaptcha="true"></div>
       <button type="submit" className="btn btn-primary">Sign in</button>
     </form>
   )
