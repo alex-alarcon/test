@@ -32,8 +32,9 @@ function Form () {
       inputState: '',
       inputZip: '',
       gridCheck: '',
-      'form-name': 'form 1',
-      'bot-field': ''
+      'form-name': 'contacto',
+      'bot-field': '',
+      subject: `Mensaje de ${this.inputEmail4}`
     },
     onSubmit: values => {
       handleSubmit(values)
@@ -45,9 +46,14 @@ function Form () {
       onSubmit={formik.handleSubmit}
       data-netlify="true"
       netlify-honeypot="bot-field"
-      name="form 1"
+      name="contacto"
     >
-      <input type="hidden" name="form-name" />
+      <input 
+        type="hidden"
+        name="form-name"
+        onChange={formik.handleChange}
+        value={formik.values['form-name']}
+      />
       <input 
         name="bot-field"
         type="hidden"
