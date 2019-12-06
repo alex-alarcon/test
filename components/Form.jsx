@@ -46,6 +46,7 @@ function Form () {
       data-netlify="true"
       netlify-honeypot="bot-field"
       data-netlify-recaptcha="true"
+      name="form 1"
     >
       <input type="hidden" name="form-name" />
       <input 
