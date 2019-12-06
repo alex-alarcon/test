@@ -32,7 +32,7 @@ function Form () {
       inputState: '',
       inputZip: '',
       gridCheck: '',
-      'form-name': '',
+      'form-name': 'form 1',
       'bot-field': ''
     },
     onSubmit: values => {
@@ -47,9 +47,10 @@ function Form () {
       netlify-honeypot="bot-field"
       data-netlify-recaptcha="true"
     >
-      <input type="hidden" name="form-name" value="test" />
+      <input type="hidden" name="form-name" />
       <input 
         name="bot-field"
+        type="hidden"
         onChange={formik.handleChange}
         value={formik.values['bot-field']}
       />
