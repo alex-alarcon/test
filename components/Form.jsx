@@ -34,7 +34,7 @@ function Form () {
       gridCheck: '',
       'form-name': 'contacto',
       'bot-field': '',
-      subject: `Mensaje de ${this.inputEmail4}`
+      subject: `Nuevo mensaje`
     },
     onSubmit: values => {
       handleSubmit(values)
