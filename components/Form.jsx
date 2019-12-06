@@ -45,7 +45,6 @@ function Form () {
       onSubmit={formik.handleSubmit}
       data-netlify="true"
       netlify-honeypot="bot-field"
-      data-netlify-recaptcha="true"
       name="form 1"
     >
       <input type="hidden" name="form-name" />
@@ -155,7 +154,6 @@ function Form () {
           </label>
         </div>
       </div>
-      <div data-netlify-recaptcha="true"></div>
       <button type="submit" className="btn btn-primary">Sign in</button>
     </form>
   )
